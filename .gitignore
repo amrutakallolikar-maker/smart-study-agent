@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment files - NEVER commit secrets
+.env
+**/.env
+!.env.example
+**/.env.example
+
+# Database
+data/
+*.db
+*.sqlite
+
+# Uploads (keep folder, not files)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Frontend build output
+frontend/dist/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

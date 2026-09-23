@@ -1,0 +1,39 @@
+services:
+  # Backend — Node.js API
+  - type: web
+    name: smart-study-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        sync: false
+      - key: WATSONX_API_KEY
+        sync: false
+      - key: WATSONX_PROJECT_ID
+        sync: false
+      - key: WATSONX_URL
+        value: https://us-south.ml.cloud.ibm.com
+      - key: GRANITE_TEXT_MODEL
+        value: ibm/granite-13b-instruct-v2
+      - key: DEMO_MODE
+        value: true
+
+  # Frontend — React/Vite static site
+  - type: static
+    name: smart-study-frontend
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
