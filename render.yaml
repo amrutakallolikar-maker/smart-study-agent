@@ -23,8 +23,9 @@ services:
         value: ""
 
   # -- Frontend: React/Vite static site --------------------------------------
-  - type: static
+  - type: web
     name: smart-study-frontend
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
