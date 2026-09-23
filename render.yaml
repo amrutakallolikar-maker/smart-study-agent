@@ -1,5 +1,5 @@
 services:
-  # Backend — Node.js API
+  # Backend - Node.js API
   - type: web
     name: smart-study-backend
     runtime: node
@@ -10,7 +10,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000
+        value: "10000"
       - key: FRONTEND_URL
         sync: false
       - key: WATSONX_API_KEY
@@ -22,9 +22,9 @@ services:
       - key: GRANITE_TEXT_MODEL
         value: ibm/granite-13b-instruct-v2
       - key: DEMO_MODE
-        value: true
+        value: "true"
 
-  # Frontend — React/Vite static site
+  # Frontend - React/Vite static site
   - type: static
     name: smart-study-frontend
     rootDir: frontend

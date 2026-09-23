@@ -164,7 +164,10 @@ async function getDb() {
   if (sqlDb) return sqlDb;
   if (initPromise) return initPromise;
 
-  initPromise = initSqlJs().then(SQL => {
+  initPromise = initSqlJs({
+    // Explicitly point sql.js to its own wasm file — required on Render/production
+    locateFile: file => path.join(require.resolve('sql.js'), '..', '..', 'dist', file),
+  }).then(SQL => {
     let fileBuffer = null;
     if (fs.existsSync(DB_PATH)) {
       fileBuffer = fs.readFileSync(DB_PATH);
