@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  // GitHub Pages serves from /smart-study-agent/ — use '/' if using a custom domain
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [react({ include: /\.(js|jsx)$/ })],
   server: {
     port: 3000,

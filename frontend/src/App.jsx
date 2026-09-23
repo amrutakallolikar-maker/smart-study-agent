@@ -21,7 +21,7 @@ import Recommendations from './pages/Recommendations';
 function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Toaster
           position="top-right"
           toastOptions={{
